@@ -1,11 +1,26 @@
-Motorola's DTB Tool for Moto G4/Plus
+# Motorola's DTB Tool for Moto G4/Plus
 
-How to combine the various DTBs generated as dt.img after building a kernel for athene (Moto G4/Plus) 
+![Device Tree Overlays](https://source.android.com/devices/architecture/images/treble_dto_bootloader.png "DTO")
 
-1. cd into your $(OUT_DIR)/arch/arm*/boot/dts 
+## How to combine the various DTBs generated as ```dt.img``` after building ```zImage``` and the corresponding ```DTBs``` for athene (Moto G4/Plus)
+
+1. cd to your kernel source's root directory ```$(SRC_DIR)``` , ```$(OUT_DIR)``` is the out folder 
 2. Download the latest dtbTool-N from the repo.
-3. Make it executable by chmod +X <filename>
-4. Run this command: 
-./dtbTool --force-v3 --motorola 1 -o $(OUT_DIR)/arch/arm/boot/dt.img -s 2048 -p scripts/dtc/ $(OUT_DIR)/arch/arm/boot/dts/
-5. cd to $(OUT_DIR)/arch/arm/boot/
-6. Now place the dt.img in your AnyKernel2 folder.
+```
+wget https://github.com/rajatgupta1998/motorola_tools_system_dtbtool/raw/master/dtbTool-N
+```
+3. Make it executable by
+```
+chmod +X <filename>
+```
+4. You might need to install the following packages (atleast on Debian based systems like Ubuntu)
+```
+libc++-helpers gcc-6-base libc6 libgcc1 multiarch-support libc++1 libc++-test libc++abi1 libc++abi-test libc++abi-dev libc++-dev
+```
+5. Merge the DTBs into a single ```dt.img``` by running this command in the ```$(SRC_DIR)```
+```
+  ./dtbTool --force-v3 --motorola 1 -o $(OUT_DIR)/arch/<arm>/boot/dt.img -s 2048 -p scripts/dtc/ $(OUT_DIR)/arch/<arm>/boot/dts/
+```
+6. cd to ```$(OUT_DIR)/arch/arm/boot/``` and find your ```dt.img```
+
+7. Now do whatever you want to. :v:
