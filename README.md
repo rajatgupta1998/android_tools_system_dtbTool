@@ -13,14 +13,14 @@ git clone https://github.com/rajatgupta1998/android_tools_system_dtbTool/ dtbToo
 ``` 
 gcc dtbTool/source/dtbtool.c -o dtbTool
 ```
-4. You might need to install the following packages (atleast on Debian based systems like Ubuntu)
+4. You might need to install the following package:
 ```
 libc++-helpers gcc-6-base libc6 libgcc1 multiarch-support libc++1 libc++-test libc++abi1 libc++abi-test libc++abi-dev libc++-dev
 ```
 5. Merge the DTBs into a single ```dt.img``` by running this command in the ```$(SRC_DIR)```
 ```
-./dtbTool -s $(BOARD_KERNEL_PAGESIZE) -o $(OUT_DIR)/arch/arm/boot/dtb -p $(OUT_DIR)/scripts/dtc/ $(OUT_DIR)/arch/arm/boot/dts/
+./dtbTool -s $(BOARD_KERNEL_PAGESIZE) -o $(OUT_DIR)/arch/$(ARCH)/boot/dtb -p $(OUT_DIR)/scripts/dtc/ $(OUT_DIR)/arch/$(ARCH)/boot/dts/
 ```
-6. cd to ```$(OUT_DIR)/arch/arm/boot/``` and find your ```dt.img```
+6. cd to ```$(OUT_DIR)/arch/$(ARCH)/boot/``` and find your ```dt.img```
 
 7. Now do whatever you want to. :v:
