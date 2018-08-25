@@ -19,7 +19,7 @@ libc++-helpers gcc-6-base libc6 libgcc1 multiarch-support libc++1 libc++-test li
 ```
 5. Merge the DTBs into a single ```dt.img``` by running this command in the ```$(SRC_DIR)```
 ```
-./dtbtool -s 2048 -o $(OUT_DIR)/arch/arm/boot/dtb -p $(OUT_DIR)/scripts/dtc/ $(OUT_DIR)/arch/arm/boot/dts/
+./dtbtool -s $(BOARD_KERNEL_PAGESIZE) -o $(OUT_DIR)/arch/arm/boot/dtb -p $(OUT_DIR)/scripts/dtc/ $(OUT_DIR)/arch/arm/boot/dts/
 ```
 6. cd to ```$(OUT_DIR)/arch/arm/boot/``` and find your ```dt.img```
 
