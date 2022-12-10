@@ -11,7 +11,7 @@ git clone https://github.com/rajatgupta1998/android_tools_system_dtbTool/ dtbToo
 ```
 3. Build the dtbTool binary using gcc, from the current directory itself. The latest one is recommended. I am using GCC 8.2.0 on Arch Linux.
 ``` 
-gcc dtbTool/source/dtbtool.c -o dtbTool
+gcc dtbTool/source/dtbtool.c -o dtbTool.o
 ```
 4. You might need to install the following package:
 ```
@@ -19,7 +19,7 @@ libc++-helpers gcc-6-base libc6 libgcc1 multiarch-support libc++1 libc++-test li
 ```
 5. Merge the DTBs into a single ```dt.img``` by running this command in the ```$(SRC_DIR)```
 ```
-./dtbTool -s $(BOARD_KERNEL_PAGESIZE) -o $(OUT_DIR)/arch/$(ARCH)/boot/dtb -p $(OUT_DIR)/scripts/dtc/ $(OUT_DIR)/arch/$(ARCH)/boot/dts/
+./dtbTool.o -s $(BOARD_KERNEL_PAGESIZE) -o $(OUT_DIR)/arch/$(ARCH)/boot/dt.img -p $(OUT_DIR)/scripts/dtc/ $(OUT_DIR)/arch/$(ARCH)/boot/dts/
 ```
 6. cd to ```$(OUT_DIR)/arch/$(ARCH)/boot/``` and find your ```dt.img```
 
